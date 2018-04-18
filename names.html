@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First React App</title>
+</head>
+
+<body>
+    <p>Hello world!</p>
+    <div id="app"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+        class Children extends React.Component{ 
+            constructor(props){
+                super(props);
+                this.state ={
+                    grounded:"None"
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <ul><h2>{this.props.label}</h2>
+                        <li>Name: {this.props.name}, Gender: {this.props.gender}</li>
+                        <li>Name: {this.props.name2}, Gender: {this.props.gender2}</li>
+                        <li>Name: {this.props.name3},  Gender: {this.props.gender3}</li>
+                        </ul>
+                        <h3>Currently grounded: {this.state.grounded}</h3>
+                    </div>
+                );
+            }
+        }
+        Children.defaultProps ={
+            label:"Kids"
+        }
+        const finn= 
+          {
+            name:"Finnigan",
+            gender:"male"
+        }
+        
+        const alie = {
+            name:"Natalie",
+            gender:"female"
+        }
+        
+        const owen = {
+            name:"Owen",
+            gender:"male"
+        }
+        
+        ReactDOM.render(
+            <Children 
+            name={finn.name} gender={finn.gender}
+            name2={alie.name} gender2={alie.gender}
+            name3={owen.name} gender3={owen.gender}/>, document.getElementById('app')
+        );
+    </script>
+</body>
+
+</html>
